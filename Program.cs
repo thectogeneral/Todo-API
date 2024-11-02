@@ -28,4 +28,10 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "Hello World!");
 
+app.MapGet("/todoitems/complete", async (TodoDb db) =>
+    await db.Todos.ToListAsync());
+
+
+
+
 app.Run();
