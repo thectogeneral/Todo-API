@@ -64,12 +64,12 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
 {
     if (await db.Todos.FindAsync(id) is Todo todo)
     {
-        db.Todo.Remove(todo);
+        db.Todos.Remove(todo);
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
 
-    Results.NotFound();
+    return Results.NotFound();
 });
 
 app.Run();
