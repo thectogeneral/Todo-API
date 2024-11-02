@@ -31,7 +31,8 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/todoitems/complete", async (TodoDb db) =>
     await db.Todos.ToListAsync());
 
-
+app.MapGet("/todositems/complete", async (TodoDb db) =>
+    await db.Todos.Where(t => t.IsComplete).ToListAsync());
 
 
 app.Run();
